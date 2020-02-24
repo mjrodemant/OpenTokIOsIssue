@@ -37,6 +37,22 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        let screenHeight = UIScreen.main.bounds.height
+        let b = UIButton()
+        b.setTitle("Connect", for: .normal)
+        b.backgroundColor = UIColor.orange
+        b.frame = CGRect(x: 0, y: screenHeight - 50, width:  400, height: 50)
+        b.addTarget(self, action: #selector(buttonClicked), for: .touchUpInside)
+        view.addSubview(b)
+        //doConnect()
+    }
+    
+    @objc func buttonClicked(_ sender: AnyObject?) {
+        doConnect()
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
         doConnect()
     }
     
